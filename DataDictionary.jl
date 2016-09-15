@@ -25,7 +25,7 @@
 # ----------------------------------------------------------------------------------- #
 # Function: DataDictionary
 # Description: Holds simulation and model parameters as key => value pairs in a Julia Dict()
-# Generated on: 2016-09-14T20:16:02
+# Generated on: 2016-09-15T13:15:53
 #
 # Input arguments:
 # time_start::Float64 => Simulation start time value (scalar) 
@@ -385,6 +385,180 @@ function DataDictionary(time_start::Float64,time_stop::Float64,time_step_size::F
 	control_parameter_dictionary["W_gene_RARa_RNAP"] = 0.1
 	control_parameter_dictionary["W_gene_RARa_gene_RARa"] = 1.0
 
+	# Parameter name index array - 
+	parameter_name_mapping_array = [
+		"n_gene_AP1_gene_AhR"	;	# 1
+		"K_gene_AP1_gene_AhR"	;	# 2
+		"n_gene_AP1_gene_PU1"	;	# 3
+		"K_gene_AP1_gene_PU1"	;	# 4
+		"n_gene_AP1_gene_PPARg"	;	# 5
+		"K_gene_AP1_gene_PPARg"	;	# 6
+		"n_gene_AhR_gene_RARa"	;	# 7
+		"K_gene_AhR_gene_RARa"	;	# 8
+		"n_gene_CD11b_gene_PU1"	;	# 9
+		"K_gene_CD11b_gene_PU1"	;	# 10
+		"n_gene_CD14_gene_EGR1"	;	# 11
+		"K_gene_CD14_gene_EGR1"	;	# 12
+		"n_gene_CD14_gene_CEBPa"	;	# 13
+		"K_gene_CD14_gene_CEBPa"	;	# 14
+		"n_gene_CD14_gene_PPARg"	;	# 15
+		"K_gene_CD14_gene_PPARg"	;	# 16
+		"n_gene_CD38_gene_RARa"	;	# 17
+		"K_gene_CD38_gene_RARa"	;	# 18
+		"n_gene_CD38_gene_PPARg"	;	# 19
+		"K_gene_CD38_gene_PPARg"	;	# 20
+		"n_gene_CD38_gene_IRF1"	;	# 21
+		"K_gene_CD38_gene_IRF1"	;	# 22
+		"n_gene_CEBPa_gene_RARa"	;	# 23
+		"K_gene_CEBPa_gene_RARa"	;	# 24
+		"n_gene_CEBPa_gene_PPARg"	;	# 25
+		"K_gene_CEBPa_gene_PPARg"	;	# 26
+		"n_gene_CEBPa_gene_CEBPa"	;	# 27
+		"K_gene_CEBPa_gene_CEBPa"	;	# 28
+		"n_gene_CEBPa_gene_GFI1"	;	# 29
+		"K_gene_CEBPa_gene_GFI1"	;	# 30
+		"n_gene_E2F_gene_E2F"	;	# 31
+		"K_gene_E2F_gene_E2F"	;	# 32
+		"n_gene_E2F_gene_PPARg"	;	# 33
+		"K_gene_E2F_gene_PPARg"	;	# 34
+		"n_gene_E2F_gene_CEBPa"	;	# 35
+		"K_gene_E2F_gene_CEBPa"	;	# 36
+		"n_gene_E2F_gene_GFI1"	;	# 37
+		"K_gene_E2F_gene_GFI1"	;	# 38
+		"n_gene_EGR1_gene_RARa"	;	# 39
+		"K_gene_EGR1_gene_RARa"	;	# 40
+		"n_gene_EGR1_gene_PU1"	;	# 41
+		"K_gene_EGR1_gene_PU1"	;	# 42
+		"n_gene_EGR1_gene_PPARg"	;	# 43
+		"K_gene_EGR1_gene_PPARg"	;	# 44
+		"n_gene_EGR1_gene_GFI1"	;	# 45
+		"K_gene_EGR1_gene_GFI1"	;	# 46
+		"n_gene_GFI1_gene_CEBPa"	;	# 47
+		"K_gene_GFI1_gene_CEBPa"	;	# 48
+		"n_gene_GFI1_gene_EGR1"	;	# 49
+		"K_gene_GFI1_gene_EGR1"	;	# 50
+		"n_gene_IRF1_gene_RARa"	;	# 51
+		"K_gene_IRF1_gene_RARa"	;	# 52
+		"n_gene_IRF1_gene_AhR"	;	# 53
+		"K_gene_IRF1_gene_AhR"	;	# 54
+		"n_gene_IRF1_gene_PPARg"	;	# 55
+		"K_gene_IRF1_gene_PPARg"	;	# 56
+		"n_gene_OCT1_gene_PPARg"	;	# 57
+		"K_gene_OCT1_gene_PPARg"	;	# 58
+		"n_gene_OCT4_gene_RARa"	;	# 59
+		"K_gene_OCT4_gene_RARa"	;	# 60
+		"n_gene_OCT4_gene_AhR"	;	# 61
+		"K_gene_OCT4_gene_AhR"	;	# 62
+		"n_gene_P21_gene_RARa"	;	# 63
+		"K_gene_P21_gene_RARa"	;	# 64
+		"n_gene_P21_gene_PPARg"	;	# 65
+		"K_gene_P21_gene_PPARg"	;	# 66
+		"n_gene_P21_gene_PU1"	;	# 67
+		"K_gene_P21_gene_PU1"	;	# 68
+		"n_gene_P21_gene_IRF1"	;	# 69
+		"K_gene_P21_gene_IRF1"	;	# 70
+		"n_gene_P21_gene_CEBPa"	;	# 71
+		"K_gene_P21_gene_CEBPa"	;	# 72
+		"n_gene_P21_gene_AP1"	;	# 73
+		"K_gene_P21_gene_AP1"	;	# 74
+		"n_gene_P21_gene_GFI1"	;	# 75
+		"K_gene_P21_gene_GFI1"	;	# 76
+		"n_gene_P47Phox_gene_PU1"	;	# 77
+		"K_gene_P47Phox_gene_PU1"	;	# 78
+		"n_gene_P47Phox_gene_CEBPa"	;	# 79
+		"K_gene_P47Phox_gene_CEBPa"	;	# 80
+		"n_gene_P47Phox_gene_PPARg"	;	# 81
+		"K_gene_P47Phox_gene_PPARg"	;	# 82
+		"n_gene_PPARg_gene_CEBPa"	;	# 83
+		"K_gene_PPARg_gene_CEBPa"	;	# 84
+		"n_gene_PPARg_gene_EGR1"	;	# 85
+		"K_gene_PPARg_gene_EGR1"	;	# 86
+		"n_gene_PPARg_gene_PU1"	;	# 87
+		"K_gene_PPARg_gene_PU1"	;	# 88
+		"n_gene_PPARg_gene_AP1"	;	# 89
+		"K_gene_PPARg_gene_AP1"	;	# 90
+		"n_gene_PU1_gene_RARa"	;	# 91
+		"K_gene_PU1_gene_RARa"	;	# 92
+		"n_gene_PU1_gene_AP1"	;	# 93
+		"K_gene_PU1_gene_AP1"	;	# 94
+		"n_gene_PU1_gene_OCT1"	;	# 95
+		"K_gene_PU1_gene_OCT1"	;	# 96
+		"n_gene_PU1_gene_AhR"	;	# 97
+		"K_gene_PU1_gene_AhR"	;	# 98
+		"n_gene_PU1_gene_GFI1"	;	# 99
+		"K_gene_PU1_gene_GFI1"	;	# 100
+		"n_gene_RARa_gene_RARa"	;	# 101
+		"K_gene_RARa_gene_RARa"	;	# 102
+		"W_gene_AP1_RNAP"	;	# 103
+		"W_gene_AP1_gene_AhR"	;	# 104
+		"W_gene_AP1_gene_PU1"	;	# 105
+		"W_gene_AP1_gene_PPARg"	;	# 106
+		"W_gene_AhR_RNAP"	;	# 107
+		"W_gene_AhR_gene_RARa"	;	# 108
+		"W_gene_CD11b_RNAP"	;	# 109
+		"W_gene_CD11b_gene_PU1"	;	# 110
+		"W_gene_CD14_RNAP"	;	# 111
+		"W_gene_CD14_gene_EGR1"	;	# 112
+		"W_gene_CD14_gene_CEBPa"	;	# 113
+		"W_gene_CD14_gene_PPARg"	;	# 114
+		"W_gene_CD38_RNAP"	;	# 115
+		"W_gene_CD38_gene_RARa"	;	# 116
+		"W_gene_CD38_gene_PPARg"	;	# 117
+		"W_gene_CD38_gene_IRF1"	;	# 118
+		"W_gene_CEBPa_RNAP"	;	# 119
+		"W_gene_CEBPa_gene_RARa"	;	# 120
+		"W_gene_CEBPa_gene_PPARg"	;	# 121
+		"W_gene_CEBPa_gene_CEBPa"	;	# 122
+		"W_gene_CEBPa_gene_GFI1"	;	# 123
+		"W_gene_E2F_RNAP"	;	# 124
+		"W_gene_E2F_gene_E2F"	;	# 125
+		"W_gene_E2F_gene_PPARg"	;	# 126
+		"W_gene_E2F_gene_CEBPa"	;	# 127
+		"W_gene_E2F_gene_GFI1"	;	# 128
+		"W_gene_EGR1_RNAP"	;	# 129
+		"W_gene_EGR1_gene_RARa"	;	# 130
+		"W_gene_EGR1_gene_PU1"	;	# 131
+		"W_gene_EGR1_gene_PPARg"	;	# 132
+		"W_gene_EGR1_gene_GFI1"	;	# 133
+		"W_gene_GFI1_RNAP"	;	# 134
+		"W_gene_GFI1_gene_CEBPa"	;	# 135
+		"W_gene_GFI1_gene_EGR1"	;	# 136
+		"W_gene_IRF1_RNAP"	;	# 137
+		"W_gene_IRF1_gene_RARa"	;	# 138
+		"W_gene_IRF1_gene_AhR"	;	# 139
+		"W_gene_IRF1_gene_PPARg"	;	# 140
+		"W_gene_OCT1_RNAP"	;	# 141
+		"W_gene_OCT1_gene_PPARg"	;	# 142
+		"W_gene_OCT4_RNAP"	;	# 143
+		"W_gene_OCT4_gene_RARa"	;	# 144
+		"W_gene_OCT4_gene_AhR"	;	# 145
+		"W_gene_P21_RNAP"	;	# 146
+		"W_gene_P21_gene_RARa"	;	# 147
+		"W_gene_P21_gene_PPARg"	;	# 148
+		"W_gene_P21_gene_PU1"	;	# 149
+		"W_gene_P21_gene_IRF1"	;	# 150
+		"W_gene_P21_gene_CEBPa"	;	# 151
+		"W_gene_P21_gene_AP1"	;	# 152
+		"W_gene_P21_gene_GFI1"	;	# 153
+		"W_gene_P47Phox_RNAP"	;	# 154
+		"W_gene_P47Phox_gene_PU1"	;	# 155
+		"W_gene_P47Phox_gene_CEBPa"	;	# 156
+		"W_gene_P47Phox_gene_PPARg"	;	# 157
+		"W_gene_PPARg_RNAP"	;	# 158
+		"W_gene_PPARg_gene_CEBPa"	;	# 159
+		"W_gene_PPARg_gene_EGR1"	;	# 160
+		"W_gene_PPARg_gene_PU1"	;	# 161
+		"W_gene_PPARg_gene_AP1"	;	# 162
+		"W_gene_PU1_RNAP"	;	# 163
+		"W_gene_PU1_gene_RARa"	;	# 164
+		"W_gene_PU1_gene_AP1"	;	# 165
+		"W_gene_PU1_gene_OCT1"	;	# 166
+		"W_gene_PU1_gene_AhR"	;	# 167
+		"W_gene_PU1_gene_GFI1"	;	# 168
+		"W_gene_RARa_RNAP"	;	# 169
+		"W_gene_RARa_gene_RARa"	;	# 170
+	]
+
 	# =============================== DO NOT EDIT BELOW THIS LINE ============================== #
 	data_dictionary = Dict{AbstractString,Any}()
 	data_dictionary["initial_condition_array"] = initial_condition_array
@@ -411,6 +585,7 @@ function DataDictionary(time_start::Float64,time_stop::Float64,time_step_size::F
 
 	data_dictionary["binding_parameter_dictionary"] = binding_parameter_dictionary
 	data_dictionary["control_parameter_dictionary"] = control_parameter_dictionary
+	data_dictionary["parameter_name_mapping_array"] = parameter_name_mapping_array
 	# =============================== DO NOT EDIT ABOVE THIS LINE ============================== #
 	return data_dictionary
 end

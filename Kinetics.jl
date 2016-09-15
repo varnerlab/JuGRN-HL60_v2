@@ -25,7 +25,7 @@
 # ----------------------------------------------------------------------------------- #
 # Function: calculate_transcription_rates
 # Description: Calculate the transcriptional rate array at time t
-# Generated on: 2016-09-14T20:16:02
+# Generated on: 2016-09-15T13:15:53
 #
 # Input arguments:
 # t::Float64 => Current time value (scalar) 
@@ -158,7 +158,7 @@ end
 # ----------------------------------------------------------------------------------- #
 # Function: calculate_background_transcription_rates
 # Description: Calculate the leak transcriptional rate array at time t
-# Generated on: 2016-09-14T20:16:02
+# Generated on: 2016-09-15T13:15:53
 #
 # Input arguments:
 # t::Float64 => Current time value (scalar) 
@@ -176,7 +176,7 @@ end
 # ----------------------------------------------------------------------------------- #
 # Function: calculate_translation_rates
 # Description: Calculate the translation rate array at time t
-# Generated on: 2016-09-14T20:16:02
+# Generated on: 2016-09-15T13:15:53
 #
 # Input arguments:
 # t::Float64 => Current time value (scalar) 
@@ -309,7 +309,7 @@ end
 # ----------------------------------------------------------------------------------- #
 # Function: calculate_mRNA_degradation_rates
 # Description: Calculate the mRNA degradation rate array at time t
-# Generated on: 2016-09-14T20:16:02
+# Generated on: 2016-09-15T13:15:53
 #
 # Input arguments:
 # t::Float64 => Current time value (scalar) 
@@ -370,7 +370,7 @@ end
 # ----------------------------------------------------------------------------------- #
 # Function: calculate_protein_degradation_rates
 # Description: Calculate the protein degradation rate array at time t
-# Generated on: 2016-09-14T20:16:02
+# Generated on: 2016-09-15T13:15:53
 #
 # Input arguments:
 # t::Float64 => Current time value (scalar) 
